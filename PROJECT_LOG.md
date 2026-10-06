@@ -49,3 +49,48 @@ The aim of this project is to develop an automated genomic sequencing quality-co
 - Learn the meaning of the main FastQC quality metrics.
 - Understand how quality thresholds can be used to identify potential sequencing problems.
 - Begin planning how FastQC results could be extracted and processed automatically using Python.
+
+## Day 2 — Understanding QC Metrics
+
+**Date:** 06/10/2026
+
+### Today's goals
+
+- Understand the main FastQC quality-control metrics.
+- Identify which metrics are most relevant to the automated pipeline.
+- Begin considering how QC thresholds can be applied programmatically.
+
+### Work completed
+
+- Reviewed the FastQC report generated from the SRR1091086 dataset.
+- Examined per-base sequence quality.
+- Examined per-sequence quality scores.
+- Examined per-sequence GC content.
+- Examined sequence duplication levels.
+- Examined adapter content.
+- Selected five metrics for the first version of the automated QC pipeline.
+
+### Metrics selected
+
+1. Per-base sequence quality
+2. Per-sequence quality scores
+3. Per-sequence GC content
+4. Sequence duplication levels
+5. Adapter content
+
+### What I learned
+
+- FastQC provides multiple complementary indicators of sequencing quality.
+- A QC metric should not necessarily be interpreted as simply good or bad without considering the biological context.
+- Adapter contamination and sequencing quality can identify potential issues before downstream analysis.
+- QC thresholds can potentially be converted into transparent computational rules.
+
+### Design decision
+
+The pipeline will initially use a rule-based QC system rather than machine learning. Each selected metric will be compared against predefined thresholds and assigned a PASS, WARNING or FAIL status.
+
+### Next steps
+
+- Determine appropriate thresholds for the selected QC metrics.
+- Investigate how FastQC stores these results in machine-readable files.
+- Plan how Python can automatically extract the metrics.
